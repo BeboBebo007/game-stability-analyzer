@@ -14,4 +14,9 @@ for d in data:
     g.observe(d)
 
 result = g.analyze()
-print(result)
+print("=== Game Stability Report ===")
+print(f"Score: {result['stability_score']}")
+print(f"Status: {result['status']}")
+
+if result["stability_score"] < 0.5:
+    print("⚠️ WARNING: Game instability detected")

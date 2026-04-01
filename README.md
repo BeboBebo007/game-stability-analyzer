@@ -1,24 +1,28 @@
 # Game Stability Analyzer (GSA)
 
-Detect crashes before they happen.
+Analyze game performance using FPS and memory patterns to detect instability and crashes.
 
-## What it does
-GSA analyzes your game performance metrics and detects instability patterns in real-time.
+## 🚀 Features
+- Detect FPS drops
+- Analyze memory usage
+- Calculate stability score
+- Identify unstable behavior
 
-## Features
-- Crash risk scoring (0–100)
-- FPS instability detection
-- Memory spike detection
-- Simple integration
-
-## Example
+## 🧠 Example
 
 ```python
-from gsa import GameStabilityAnalyzer
+from gsa.core import GameStabilityAnalyzer
 
 g = GameStabilityAnalyzer()
 
-g.observe({"fps": 60, "memory": 1000})
-g.observe({"fps": 40, "memory": 1800})
+data = [
+    {"fps": 60, "memory": 1000},
+    {"fps": 55, "memory": 1200},
+    {"fps": 40, "memory": 1500},
+]
 
-print(g.analyze())
+for d in data:
+    g.observe(d)
+
+result = g.analyze()
+print(result)
